@@ -35,19 +35,7 @@ Built on an **everything-is-a-plugin** architecture and powered by [Cordis](http
 
 ---
 
-## ✨ Why idexla Agents?
 
-| Feature | Description |
-|---------|-------------|
-| **🆓 Free Forever** | MIT licensed. No premium tier, no hidden costs. Community-owned to remain free. |
-| **🧩 Everything is a Plugin** | Every feature is a Cordis plugin — deeply customizable, composable, hackable. |
-| **🤖 Multi-Provider AI** | Bring your own API keys, gateways, or local models. No vendor lock-in. |
-| **🌐 Web UI + Desktop + CLI** | Web, desktop (Electron + Rust), and terminal — same harness, same memory. |
-| **⚡ Blazing Fast** | Rust engine, Monaco Editor, streamlined Web UI. |
-| **🔌 Ecosystem** | `idexal-plugin` topic for discoverability. Write once, run everywhere. |
-| **🔒 Transparent & Auditable** | 100% open source, auditable, self-hostable. |
-
----
 
 ## 🚀 Quick Start
 
