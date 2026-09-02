@@ -1,20 +1,20 @@
 <p align="center">
   <a href="https://idexal.com">
-    <img src="apps/web/public/logo.png" alt="idexla Agents AI Web UI" width="180" />
+    <img src="apps/web/public/logo.png" alt="idexal Agents AI Web UI" width="180" />
   </a>
 </p>
 
-<h1 align="center">idexla Agents AI Web UI — Free OpenSource</h1>
+<h1 align="center">idexal Agents AI Web UI — Free OpenSource</h1>
 
 <p align="center">
   <strong>Open-source, AI-powered IDE. Everything-is-a-plugin. Built on Cordis. 100% Free, Forever.</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/idexal/idexla-Agents-AI-Web-UI"><img src="https://img.shields.io/github/stars/idexal/idexla-Agents-AI-Web-UI?style=for-the-badge&logo=github&label=Stars&color=2563EB" alt="GitHub Stars" /></a>
-  <a href="https://github.com/idexal/idexla-Agents-AI-Web-UI/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-2563EB?style=for-the-badge" alt="MIT License" /></a>
+  <a href="https://github.com/idexal/idexal-Agents-AI-Web-UI"><img src="https://img.shields.io/github/stars/idexal/idexal-Agents-AI-Web-UI?style=for-the-badge&logo=github&label=Stars&color=2563EB" alt="GitHub Stars" /></a>
+  <a href="https://github.com/idexal/idexal-Agents-AI-Web-UI/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-2563EB?style=for-the-badge" alt="MIT License" /></a>
   <a href="https://idexal.com"><img src="https://img.shields.io/badge/Docs-agents.idexal.com-0A1628?style=for-the-badge&logo=book" alt="Docs" /></a>
-  <a href="https://github.com/idexal/idexla-Agents-AI-Web-UI/releases"><img src="https://img.shields.io/github/v/release/idexal/idexla-Agents-AI-Web-UI?style=for-the-badge&label=Release&color=0A1628" alt="Release" /></a>
+  <a href="https://github.com/idexal/idexal-Agents-AI-Web-UI/releases"><img src="https://img.shields.io/github/v/release/idexal/idexal-Agents-AI-Web-UI?style=for-the-badge&label=Release&color=0A1628" alt="Release" /></a>
 </p>
 
 <p align="center">
@@ -27,11 +27,11 @@
 
 ---
 
-> **idexla Agents AI Web UI** is a free and open-source, AI-powered IDE that competes with the best proprietary solutions — accessible to every developer on every platform. No paywalls. No feature gating. MIT licensed and community-driven to stay free forever.
+> **idexal Agents AI Web UI** is a free and open-source, AI-powered IDE that competes with the best proprietary solutions — accessible to every developer on every platform. No paywalls. No feature gating. MIT licensed and community-driven to stay free forever.
 
 Built on an **everything-is-a-plugin** architecture and powered by [Cordis](https://github.com/cordiverse/cordis), whose design is described in [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
 
-**🌐 Live:** [https://idexal.com](https://idexal.com) — **📦 Repo:** [https://github.com/idexal/idexla-Agents-AI-Web-UI](https://github.com/idexal/idexla-Agents-AI-Web-UI)
+**🌐 Live:** [https://idexal.com](https://idexal.com) — **📦 Repo:** [https://github.com/idexal/idexal-Agents-AI-Web-UI](https://github.com/idexal/idexal-Agents-AI-Web-UI)
 
 ---
 
@@ -52,7 +52,7 @@ Starts the Web UI at `http://127.0.0.1:3080` and opens it in your browser. Use `
 ### Run from source
 
 ```sh
-git clone https://github.com/idexal/idexla-Agents-AI-Web-UI.git
+git clone https://github.com/idexal/idexal-Agents-AI-Web-UI.git
 cd agents
 pnpm install
 pnpm run build
@@ -78,7 +78,7 @@ Start with [docs/architecture.md](docs/architecture.md) and [docs/development.md
 
 | Project | Description | Links |
 |---------|-------------|-------|
-| **idexla Agents AI Web UI** | This repo — free AI-powered Web IDE | [github.com/idexal/idexla-Agents-AI-Web-UI](https://github.com/idexal/idexla-Agents-AI-Web-UI) • [agents.idexal.com](https://idexal.com) |
+| **idexal Agents AI Web UI** | This repo — free AI-powered Web IDE | [github.com/idexal/idexal-Agents-AI-Web-UI](https://github.com/idexal/idexal-Agents-AI-Web-UI) • [agents.idexal.com](https://idexal.com) |
 | **Idexal IDE** | Desktop IDE (Electron + React + Monaco + Rust) | [github.com/idexal/idexal-ide](https://github.com/idexal/idexal-ide) |
 | **Idexal CLI** | Terminal-first AI coding assistant | [github.com/idexal/idexal-cli](https://github.com/idexal/idexal-cli) |
 | **Idexal Skills** | 118+ production-ready agent skills | [github.com/idexal/idexal-skills](https://github.com/idexal/idexal-skills) |
@@ -90,13 +90,13 @@ All MIT licensed. One harness, your choice of AI.
 
 ## 💝 Support the Project — Keep it Free Forever
 
-**idexla Agents will always be free and open source.** To keep it that way we need your help:
+**idexal Agents will always be free and open source.** To keep it that way we need your help:
 
 - ⭐ **Star** this repo to increase visibility
 - 💖 **Sponsor** on GitHub Sponsors — see [FUNDING.yml](.github/FUNDING.yml)
 - 🤝 **Contribute** code, docs, translations, or plugins (see [CONTRIBUTING.md](CONTRIBUTING.md))
 - 📣 **Share** with colleagues, write tutorials, add `idexal-plugin` to your plugin repos
-- 🐛 **Report** bugs & ideas in [GitHub Discussions](https://github.com/idexal/idexla-Agents-AI-Web-UI/discussions) / [Issues](https://github.com/idexal/idexla-Agents-AI-Web-UI/issues)
+- 🐛 **Report** bugs & ideas in [GitHub Discussions](https://github.com/idexal/idexal-Agents-AI-Web-UI/discussions) / [Issues](https://github.com/idexal/idexal-Agents-AI-Web-UI/issues)
 
 > Every sponsorship, star, and contribution directly funds development, hosting, and keeps this project 100% free for everyone — students, indie hackers, and enterprises alike.
 
@@ -153,15 +153,15 @@ Third-party licenses in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 ---
 
 <p align="center">
-  <a href="https://idexal.com"><img src="apps/web/public/logo.png" alt="idexla logo" width="120" /></a><br>
-  <strong>idexla Agents AI Web UI</strong> — Free OpenSource, Forever<br>
+  <a href="https://idexal.com"><img src="apps/web/public/logo.png" alt="idexal logo" width="120" /></a><br>
+  <strong>idexal Agents AI Web UI</strong> — Free OpenSource, Forever<br>
   Built with ❤️ by <a href="https://idexal.com">Idexal</a> • <a href="https://zakariaelahbabi.com">Zakariae Lahbabi</a><br>
   <em>Free for students • Free for indie hackers • Free for enterprises • Free for everyone</em>
 </p>
 
 <p align="center">
-  <a href="https://github.com/idexal/idexla-Agents-AI-Web-UI">⭐ Star on GitHub</a> •
+  <a href="https://github.com/idexal/idexal-Agents-AI-Web-UI">⭐ Star on GitHub</a> •
   <a href="https://github.com/sponsors/idexal">💖 Sponsor</a> •
   <a href="https://idexal.com">📚 Docs</a> •
-  <a href="https://github.com/idexal/idexla-Agents-AI-Web-UI/discussions">💬 Discussions</a>
+  <a href="https://github.com/idexal/idexal-Agents-AI-Web-UI/discussions">💬 Discussions</a>
 </p>
