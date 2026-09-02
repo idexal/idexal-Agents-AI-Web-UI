@@ -20,7 +20,7 @@
 - button "Settings":
   - img
   - text: Settings
-- text: Into the Unknown Preview
+- text: Tell me what you want to make or solve. Preview
 - button "Choose workspace":
   - img
   - text: workspace

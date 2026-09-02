@@ -18,9 +18,9 @@ import {
   LOCALE_ID_PATTERN, LOCALE_IDS, LOCALE_PREFERENCE_FIELD, LOCALE_SETTINGS_NAMESPACE,
   type BuiltInLocaleId, type LocaleId, type LocaleSettings,
 } from '../locale-settings.ts'
-import { en, zh, type CommonKey } from '../locales/index.ts'
+import { en, zh, ar, type CommonKey } from '../locales/index.ts'
 import {
-  en as settingsEn, zh as settingsZh, type SettingsLocaleKey,
+  en as settingsEn, zh as settingsZh, ar as settingsAr, type SettingsLocaleKey,
 } from '../locales/settings.ts'
 import type { LanguageRowInjected } from './LanguageRow.tsx'
 import { LanguageRow } from './LanguageRow.tsx'
@@ -147,6 +147,11 @@ function syncDocumentLanguage(snapshot: LocaleSnapshot): void {
   // Non-browser runs (node boots of the client tree) have no document.
   if (typeof document === 'undefined') return
   document.documentElement.lang = snapshot.active === 'zh' ? 'zh-CN' : snapshot.active
+  // RTL languages need dir attribute set for proper text direction
+  const RTL_LOCALES = ['ar', 'he', 'fa', 'ur']
+  const primaryLang = snapshot.active.split('-')[0] ?? snapshot.active
+  const isRtl = RTL_LOCALES.includes(primaryLang)
+  document.documentElement.dir = isRtl ? 'rtl' : 'ltr'
 }
 
 /**
@@ -541,6 +546,10 @@ export function apply(ctx: ClientContext): void {
   const locale = new LocaleRuntime(ctx, host)
   locale.register(COMMON_NS, { zh, en })
   locale.register(SETTINGS_NS, { zh: settingsZh, en: settingsEn })
+  // Register Arabic as a language pack (untyped form — no per-component Arabic dictionaries needed yet)
+  locale.addLanguage({ id: 'ar', label: 'العربية', fallback: 'en' })
+  locale.register(COMMON_NS, 'ar', ar)
+  locale.register(SETTINGS_NS, 'ar', settingsAr)
   ctx.provide('locale', locale)
   // The service IS the LocaleFace (bind + getSnapshot/subscribe): install it
   // so the render machinery can synthesize the `t` standard seat.

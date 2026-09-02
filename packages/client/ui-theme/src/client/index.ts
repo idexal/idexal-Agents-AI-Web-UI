@@ -35,6 +35,88 @@ export type { AppearanceRowState, FontSizeRowState } from './settings-store.ts'
 export type { ThemeKey } from './locales.ts'
 export type { ThemePreference, ThemeSettings } from '../theme-settings.ts'
 
+// Dark Mode Theme System
+export { ThemeProvider, useTheme, ThemeToggle, themeStyles } from './DarkMode.ts'
+export type { Theme, ResolvedTheme } from './DarkMode.ts'
+
+// Theme Settings Panel
+export { ThemeSettings as ThemeSettingsPanel } from './ThemeSettings.tsx'
+export type { ThemeSettingsProps, ThemeSettingsState } from './ThemeSettings.tsx'
+
+// Theme-aware Styling Hooks
+export {
+  useThemeColors,
+  useThemeStyles,
+  useThemeVariant,
+  useIsDarkMode,
+  useThemeClass,
+} from './useThemeStyles.ts'
+export type { ThemeColors } from './useThemeStyles.ts'
+
+// RTL Support
+export {
+  RTLProvider,
+  RTLLayout,
+  RTLFlex,
+  RTLText,
+  RTLIcon,
+  useRTL,
+  useDirectionStyles,
+} from './RTLLayout.tsx'
+export type {
+  Direction,
+  RTLProviderProps,
+  RTLLayoutProps,
+  RTLFlexProps,
+  RTLTextProps,
+  RTLIconProps,
+} from './RTLLayout.tsx'
+export { ar as ArabicLocale } from './locales/ar.ts'
+export type { ArLocale } from './locales/ar.ts'
+
+// RTL Integration
+export {
+  RTLIntegrationProvider,
+  useRTLState,
+  useRTLStyles,
+  useRTLAwareText,
+  withRTL,
+} from './RTLIntegration.tsx'
+export type { RTLIntegrationProviderProps } from './RTLIntegration.tsx'
+
+// RTL Components
+export {
+  RTLStack,
+  RTLBox,
+  RTLText as RTLTextComponent,
+  RTLIconText,
+  RTLArrow,
+  RTLCheck,
+  RTLButtonGroup,
+} from './RTLComponents.tsx'
+
+// Enhanced Dark Mode
+export {
+  DarkModeManager,
+  getDarkModeManager,
+  useDarkMode,
+  useSystemPreference,
+  usePrefersReducedMotion,
+  useThemeStyles as useEnhancedThemeStyles,
+  DEFAULT_THEME_CONFIG,
+  DARK_MODE_TRANSITION_CSS,
+  type Theme as EnhancedTheme,
+  type ResolvedTheme as EnhancedResolvedTheme,
+  type SystemTheme,
+  type ThemeConfig,
+  type ThemeState,
+  type ThemeColors as EnhancedThemeColors,
+} from './DarkModeEnhanced.ts'
+export {
+  ThemeToggleEnhanced,
+  type ThemeToggleEnhancedProps,
+} from './ThemeToggleEnhanced.tsx'
+
 /** Namespace owning this feature's settings-row copy. */
 export const SETTINGS_NS = 'settings.theme'
 

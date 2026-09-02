@@ -40,3 +40,40 @@ apps/web/dist/
 worktrees/
 .agents/worktrees/
 .typert-*/
+# idexla — temp artifacts (do not commit)
+.freebuff/
+*.log
+*.log.err
+all_tsx.txt
+emptyhero_cut.txt
+found_brands.txt
+hero_locale_matches.txt
+hero_matches.txt
+locales_found*.txt
+leftovers.txt
+search_results*.txt
+info.txt
+test.txt
+/*.mjs
+cut.mjs
+p.mjs
+p2.mjs
+p3.mjs
+s.mjs
+s2.mjs
+s3.mjs
+s4.mjs
+s5.mjs
+s6.mjs
+s7.mjs
+t.mjs
+t2.mjs
+/find*.mjs
+dirs-script.js
+search-script*.js
+# keep official logos only via .github/assets & apps/web/public
+idexal logo+icon/
+# root only (apps/web/public keeps official)
+/logo.png
+/icon.png
+/favicon.ico

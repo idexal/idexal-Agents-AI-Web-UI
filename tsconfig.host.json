@@ -115,7 +115,11 @@
     "scripts/*.client.spec.ts",
     "scripts/client-bundle-css.spec.ts",
     "packages/typert/generator/tests/fixtures/**",
-    "scripts/client-bundle-purity.spec.ts"
+    "scripts/client-bundle-purity.spec.ts",
+    "scripts/project-doc-site.spec.ts",
+    "scripts/project-doc-site.ts",
+    "scripts/verify-doc-site-fragments.ts",
+    "scripts/verify-doc-site-fragments.spec.ts"
   ],
   "references": [
     { "path": "./vendor/cosmokit" },

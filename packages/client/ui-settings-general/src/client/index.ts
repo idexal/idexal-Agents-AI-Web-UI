@@ -26,6 +26,12 @@ import type {
 import { SettingsRoot } from './SettingsRoot.tsx'
 import { CloseLabel, HeaderContent, TriggerContent } from './chrome.tsx'
 import { GeneralSection } from './GeneralSection.tsx'
+import { AboutSection } from './AboutSection.tsx'
+import { KeyboardShortcutsSection } from './KeyboardShortcutsSection.tsx'
+import { FeatureControlsSection } from './FeatureControlsSection.tsx'
+import { UnifiedDashboard } from './UnifiedDashboard.tsx'
+import { PerformanceQualityFocusDashboard } from './PerformanceQualityFocusDashboard.tsx'
+import { AccessibleThemesSection } from './AccessibleThemesSection.tsx'
 import { SettingsDocumentAction } from './SettingsDocumentAction.tsx'
 import type { SettingsDocumentActionInjected } from './SettingsDocumentAction.tsx'
 import { SettingsDocumentStore } from './settings-document-store.ts'
@@ -38,8 +44,19 @@ export type {
   GeneralSectionComponentProps,
 } from './GeneralSection.tsx'
 export type { SettingsDocumentActionInjected, SettingsDocumentActionProps } from './SettingsDocumentAction.tsx'
+export type { KeyboardShortcutsSectionProps } from './KeyboardShortcutsSection.tsx'
 export type { SettingsDocumentState } from './settings-document-store.ts'
 export { SettingsDocumentStore } from './settings-document-store.ts'
+export { SettingsSync, getSettingsSync, resetSettingsSync } from './settings-sync.ts'
+export {
+  AccessibleThemesEngine,
+  getAccessibleThemesEngine,
+  resetAccessibleThemesEngine,
+  type AccessibleThemeMode,
+  type AccessibleThemeConfig,
+  type AccessibleColorSet,
+  type ContrastCheckResult,
+} from './AccessibleThemes.ts'
 export type { SettingsKey } from './locales.ts'
 
 declare module '@deepseek-ai/dsh-client-ui-slots' {
@@ -180,4 +197,58 @@ export function apply(ctx: ClientContext): void {
     locale: NS,
     children: { 'settings.general.item': { kind: 'list', scope: 'root' } },
   }, GeneralSection))
+
+  // About section
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'about',
+    order: 100,
+    label: () => t('about.nav'),
+    locale: NS,
+  }, AboutSection))
+
+  // Keyboard Shortcuts section
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'keyboard-shortcuts',
+    order: 50,
+    label: () => t('keyboard-shortcuts.nav'),
+    locale: NS,
+  }, KeyboardShortcutsSection))
+
+  // Feature Controls section
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'feature-controls',
+    order: 25,
+    label: () => t('feature-controls.nav'),
+    locale: NS,
+  }, FeatureControlsSection))
+
+  // Unified Dashboard section
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'unified-dashboard',
+    order: 20,
+    label: () => t('unified-dashboard.nav'),
+    locale: NS,
+  }, UnifiedDashboard))
+
+  // Performance, Quality & Focus Dashboard
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'perf-quality-focus',
+    order: 18,
+    label: () => t('perf-quality-focus.nav'),
+    locale: NS,
+  }, PerformanceQualityFocusDashboard))
+
+  // Accessible Themes section
+  ctx.slots.inject('settings.section', () => ctx.slots.register({
+    name: 'settings.section',
+    id: 'accessible-themes',
+    order: 19,
+    label: () => t('accessible-themes.nav'),
+    locale: NS,
+  }, AccessibleThemesSection))
 }

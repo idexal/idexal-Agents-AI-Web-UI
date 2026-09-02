@@ -1,2 +1,14 @@
 blank_issues_enabled: false
-contact_links: []
+contact_links:
+  - name: "💬 Discussions — Questions, Ideas & Help"
+    url: https://github.com/idexal/agents/discussions
+    about: "Ask questions, share ideas, and get community help"
+  - name: "💖 Sponsor — Keep it Free Forever"
+    url: https://github.com/sponsors/idexal
+    about: "Sponsor idexla Agents to keep it MIT and free for everyone"
+  - name: "📚 Docs — agents.idexal.com"
+    url: https://agents.idexal.com
+    about: "Official documentation"
+  - name: "🔒 Security — Private Report"
+    url: https://github.com/idexal/agents/security/policy
+    about: "Do not file public issues for vulnerabilities — see SECURITY.md"

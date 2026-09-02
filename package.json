@@ -1,9 +1,28 @@
 {
   "name": "@deepseek-ai/dsh-root",
   "version": "0.1.2-alpha.3",
+  "description": "idexla Agents AI Web UI — Free OpenSource AI-powered IDE | Everything-is-a-plugin • Built on Cordis • 100% Free Forever • by Zakariae Lahbabi / Idexal",
+  "keywords": ["ai", "ide", "agents", "open-source", "free", "idexla", "web-ui", "cordis", "plugin", "developer-tools", "llm", "typescript"],
   "license": "MIT",
   "private": true,
   "type": "module",
+  "author": {
+    "name": "Zakariae Lahbabi",
+    "email": "info@idexal.com",
+    "url": "https://idexal.com"
+  },
+  "homepage": "https://agents.idexal.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idexal/agents"
+  },
+  "bugs": {
+    "url": "https://github.com/idexal/agents/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/idexal"
+  },
   "packageManager": "pnpm@11.7.0",
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
@@ -155,6 +174,10 @@
     "demo:inspector": "node --import tsx/esm apps/cli/src/bin.ts web --patch ./packages/experimental/inspector/cordis.source.patch.yml",
     "mock:llm": "node --import tsx packages/test-support/llm-mock-server/src/bin.ts",
     "dev:web": "tsx scripts/dev-web.ts --poll",
+    "desktop:dev": "cd apps/desktop && pnpm run dev",
+    "desktop:build": "cd apps/desktop && pnpm run build",
+    "desktop:package": "cd apps/desktop && pnpm run package",
+    "desktop:package:win": "cd apps/desktop && pnpm run package:win",
     "postinstall": "node scripts/install-lefthook.mjs"
   },
   "devDependencies": {

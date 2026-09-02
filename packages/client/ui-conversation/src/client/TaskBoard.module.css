@@ -1,0 +1,708 @@
+/* Task Board Styles for Idexal Agents */
+
+/* ==================== Variables ==================== */
+.taskBoard {
+  --tb-primary: #2563EB;
+  --tb-primary-hover: #1D4ED8;
+  --tb-primary-light: #EFF6FF;
+  --tb-success: #10B981;
+  --tb-success-light: #D1FAE5;
+  --tb-warning: #F59E0B;
+  --tb-warning-light: #FEF3C7;
+  --tb-error: #EF4444;
+  --tb-error-light: #FEE2E2;
+  --tb-info: #3B82F6;
+  --tb-info-light: #DBEAFE;
+
+  --tb-bg: #FFFFFF;
+  --tb-bg-secondary: #F8FAFC;
+  --tb-bg-tertiary: #F1F5F9;
+  --tb-bg-hover: #F8FAFC;
+
+  --tb-text: #0F172A;
+  --tb-text-secondary: #475569;
+  --tb-text-tertiary: #94A3B8;
+
+  --tb-border: #E2E8F0;
+  --tb-border-hover: #CBD5E1;
+  --tb-border-focus: #2563EB;
+
+  --tb-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tb-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tb-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --tb-radius-sm: 6px;
+  --tb-radius-md: 8px;
+  --tb-radius-lg: 12px;
+  --tb-radius-xl: 16px;
+
+  --tb-transition: all 0.2s ease;
+}
+
+/* ==================== Dark Mode ==================== */
+@media (prefers-color-scheme: dark) {
+  .taskBoard,
+  .taskBoard[data-theme="dark"] {
+    --tb-primary: #3B82F6;
+    --tb-primary-hover: #60A5FA;
+    --tb-primary-light: #1E3A5F;
+    --tb-success: #34D399;
+    --tb-success-light: #064E3B;
+    --tb-warning: #FBBF24;
+    --tb-warning-light: #78350F;
+    --tb-error: #F87171;
+    --tb-error-light: #7F1D1D;
+    --tb-info: #60A5FA;
+    --tb-info-light: #1E3A5F;
+
+    --tb-bg: #0F172A;
+    --tb-bg-secondary: #1E293B;
+    --tb-bg-tertiary: #334155;
+    --tb-bg-hover: #1E293B;
+
+    --tb-text: #F1F5F9;
+    --tb-text-secondary: #94A3B8;
+    --tb-text-tertiary: #64748B;
+
+    --tb-border: #334155;
+    --tb-border-hover: #475569;
+    --tb-border-focus: #3B82F6;
+
+    --tb-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --tb-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --tb-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  }
+}
+
+/* ==================== Container ==================== */
+.taskBoard {
+  padding: 24px;
+  font-family: var(--font-family, system-ui, -apple-system, sans-serif);
+  background: var(--tb-bg);
+  border-radius: var(--tb-radius-xl);
+  min-height: 100%;
+}
+
+.taskBoard.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ==================== Header ==================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--tb-border);
+}
+
+.headerTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--tb-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ==================== Buttons ==================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--tb-radius-md);
+  cursor: pointer;
+  transition: var(--tb-transition);
+  border: none;
+}
+
+.btnPrimary {
+  background: var(--tb-primary);
+  color: white;
+}
+
+.btnPrimary:hover {
+  background: var(--tb-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--tb-shadow-md);
+}
+
+.btnSecondary {
+  background: var(--tb-bg-secondary);
+  color: var(--tb-text);
+  border: 1px solid var(--tb-border);
+}
+
+.btnSecondary:hover {
+  background: var(--tb-bg-hover);
+  border-color: var(--tb-border-hover);
+}
+
+.btnDanger {
+  background: var(--tb-error);
+  color: white;
+}
+
+.btnDanger:hover {
+  background: #DC2626;
+}
+
+.btnIcon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--tb-radius-sm);
+}
+
+/* ==================== Stats ==================== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: var(--tb-bg-secondary);
+  border-radius: var(--tb-radius-lg);
+  border: 1px solid var(--tb-border);
+  transition: var(--tb-transition);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tb-shadow-md);
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--tb-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--tb-text);
+}
+
+.statCard.pending .statValue { color: var(--tb-warning); }
+.statCard.inProgress .statValue { color: var(--tb-info); }
+.statCard.completed .statValue { color: var(--tb-success); }
+.statCard.overdue .statValue { color: var(--tb-error); }
+
+/* ==================== Filters ==================== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterSelect {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--tb-border);
+  border-radius: var(--tb-radius-md);
+  background: var(--tb-bg);
+  color: var(--tb-text);
+  cursor: pointer;
+  transition: var(--tb-transition);
+  min-width: 150px;
+}
+
+.filterSelect:hover {
+  border-color: var(--tb-border-hover);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--tb-border-focus);
+  box-shadow: 0 0 0 3px var(--tb-primary-light);
+}
+
+/* ==================== Task List ==================== */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--tb-bg-secondary);
+  border-radius: var(--tb-radius-lg);
+  border: 2px dashed var(--tb-border);
+}
+
+.emptyStateIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.emptyStateTitle {
+  margin: 0 0 8px 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--tb-text);
+}
+
+.emptyStateDescription {
+  margin: 0 0 20px 0;
+  color: var(--tb-text-secondary);
+}
+
+/* ==================== Task Card ==================== */
+.taskCard {
+  background: var(--tb-bg);
+  border: 1px solid var(--tb-border);
+  border-radius: var(--tb-radius-lg);
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--tb-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.taskCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--tb-border);
+  transition: var(--tb-transition);
+}
+
+.taskCard:hover {
+  border-color: var(--tb-border-hover);
+  box-shadow: var(--tb-shadow-md);
+  transform: translateY(-2px);
+}
+
+.taskCard:hover::before {
+  background: var(--tb-primary);
+}
+
+.taskCard.pending::before { background: var(--tb-warning); }
+.taskCard.inProgress::before { background: var(--tb-info); }
+.taskCard.completed::before { background: var(--tb-success); }
+.taskCard.failed::before { background: var(--tb-error); }
+.taskCard.cancelled::before { background: var(--tb-text-tertiary); }
+.taskCard.overdue { border-color: var(--tb-error); }
+
+.taskCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.taskPriority {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--tb-radius-sm);
+}
+
+.taskPriority.low {
+  background: var(--tb-success-light);
+  color: var(--tb-success);
+}
+
+.taskPriority.medium {
+  background: var(--tb-warning-light);
+  color: var(--tb-warning);
+}
+
+.taskPriority.high {
+  background: #FED7AA;
+  color: #EA580C;
+}
+
+.taskPriority.urgent {
+  background: var(--tb-error-light);
+  color: var(--tb-error);
+}
+
+.taskStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--tb-radius-sm);
+  background: var(--tb-bg-secondary);
+  color: var(--tb-text-secondary);
+}
+
+.taskTitle {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tb-text);
+  line-height: 1.4;
+}
+
+.taskDescription {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--tb-text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.taskMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.taskMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--tb-text-secondary);
+}
+
+.taskMetaItem.overdue {
+  color: var(--tb-error);
+  font-weight: 500;
+}
+
+.taskActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--tb-border);
+}
+
+.statusSelect {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid var(--tb-border);
+  border-radius: var(--tb-radius-sm);
+  background: var(--tb-bg);
+  color: var(--tb-text);
+  cursor: pointer;
+}
+
+.deleteBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--tb-radius-sm);
+  cursor: pointer;
+  transition: var(--tb-transition);
+  font-size: 16px;
+}
+
+.deleteBtn:hover {
+  background: var(--tb-error-light);
+  border-color: var(--tb-error);
+}
+
+/* ==================== Modal ==================== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modalContent {
+  background: var(--tb-bg);
+  border-radius: var(--tb-radius-xl);
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--tb-shadow-lg);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalTitle {
+  margin: 0 0 24px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tb-text);
+}
+
+/* ==================== Form ==================== */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--tb-text);
+}
+
+.formInput,
+.formTextarea,
+.formSelect {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid var(--tb-border);
+  border-radius: var(--tb-radius-md);
+  background: var(--tb-bg);
+  color: var(--tb-text);
+  transition: var(--tb-transition);
+  box-sizing: border-box;
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: var(--tb-border-focus);
+  box-shadow: 0 0 0 3px var(--tb-primary-light);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--tb-text-tertiary);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formHint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--tb-text-tertiary);
+}
+
+/* ==================== Range Input ==================== */
+.rangeContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rangeInput {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  background: var(--tb-bg-tertiary);
+  border-radius: 3px;
+  outline: none;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--tb-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--tb-transition);
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px var(--tb-primary-light);
+}
+
+.rangeValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--tb-text);
+  min-width: 40px;
+  text-align: right;
+}
+
+/* ==================== Modal Actions ==================== */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--tb-border);
+}
+
+/* ==================== Task Meta Info ==================== */
+.taskMetaInfo {
+  padding: 16px;
+  background: var(--tb-bg-secondary);
+  border-radius: var(--tb-radius-md);
+  margin-bottom: 20px;
+}
+
+.taskMetaRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.taskMetaRow:not(:last-child) {
+  border-bottom: 1px solid var(--tb-border);
+}
+
+.taskMetaLabel {
+  color: var(--tb-text-secondary);
+}
+
+.taskMetaValue {
+  font-weight: 500;
+  color: var(--tb-text);
+}
+
+/* ==================== Progress Bar ==================== */
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--tb-bg-tertiary);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--tb-primary);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressFill.success { background: var(--tb-success); }
+.progressFill.warning { background: var(--tb-warning); }
+.progressFill.error { background: var(--tb-error); }
+
+/* ==================== Responsive ==================== */
+@media (max-width: 640px) {
+  .taskBoard {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .taskCard {
+    padding: 14px;
+  }
+
+  .taskCardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .modalContent {
+    padding: 20px;
+  }
+}
+
+/* ==================== RTL Support ==================== */
+.taskBoard.rtl .taskCard::before {
+  left: auto;
+  right: 0;
+}
+
+.taskBoard.rtl .formInput,
+.taskBoard.rtl .formTextarea,
+.taskBoard.rtl .formSelect {
+  text-align: right;
+}
+
+.taskBoard.rtl .rangeValue {
+  text-align: left;
+}
+
+.taskBoard.rtl .modalActions {
+  justify-content: flex-start;
+}

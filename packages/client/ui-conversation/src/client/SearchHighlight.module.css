@@ -1,0 +1,222 @@
+/* Search Highlight Styles for Idexal Agents */
+
+/* Main highlight container */
+.searchHighlightContainer {
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Highlighted text */
+.highlight {
+  background-color: #fef08a;
+  color: #1f2937;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+/* Active highlight (focused match) */
+.highlightActive {
+  background-color: #fbbf24;
+  color: #1f2937;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #f59e0b;
+  animation: highlightPulse 1.5s ease-in-out infinite;
+}
+
+/* Highlight pulse animation */
+@keyframes highlightPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #f59e0b;
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Match count badge */
+.matchCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-left: 8px;
+  padding: 2px 6px;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+}
+
+/* Search match navigation */
+.matchNavigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.matchNavigationButton {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s ease;
+}
+
+.matchNavigationButton:hover:not(:disabled) {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.matchNavigationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.matchCounter {
+  font-weight: 500;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* No matches message */
+.noMatches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Code block - no highlighting */
+.codeBlock {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Inline code - no highlighting */
+.inlineCode {
+  background-color: #f3f4f6;
+  color: #e11d48;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+/* Search context snippet */
+.searchSnippet {
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.searchSnippetHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.searchSnippetContent {
+  color: #374151;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    background-color: #854d0e;
+    color: #fef3c7;
+  }
+
+  .highlightActive {
+    background-color: #d97706;
+    color: #fef3c7;
+  }
+
+  .matchCount {
+    color: #9ca3af;
+    background-color: #374151;
+  }
+
+  .matchNavigation {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .matchNavigationButton {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #e5e7eb;
+  }
+
+  .matchNavigationButton:hover:not(:disabled) {
+    background-color: #4b5563;
+  }
+
+  .noMatches {
+    background-color: #374151;
+    color: #9ca3af;
+  }
+
+  .searchSnippet {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #e5e7eb;
+  }
+}
+
+/* RTL support */
+[dir="rtl"] .matchNavigationButton {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+/* Print styles */
+@media print {
+  .highlight {
+    background-color: #fef08a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .highlightActive {
+    background-color: #fbbf24 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .matchNavigation {
+    display: none;
+  }
+}

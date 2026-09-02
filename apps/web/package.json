@@ -1,13 +1,19 @@
 {
   "name": "@deepseek-ai/dsh-web-frontend",
-  "description": "Web application entry: vite build over the @deepseek-ai/dsh-client-web shell library; dist/ served by apps/cli's dsh web",
+  "description": "idexla Agents AI Web UI — Free OpenSource — Web frontend (official logo: /logo.png, /icon.png)",
   "version": "0.1.2-alpha.3",
+  "author": {
+    "name": "Zakariae Lahbabi",
+    "email": "info@idexal.com",
+    "url": "https://idexal.com"
+  },
+  "homepage": "https://agents.idexal.com",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "https://github.com/idexal/agents",
     "directory": "apps/web"
   },
   "type": "module",

@@ -36,6 +36,12 @@ export type {
   SettingsDescribeFace, SettingsDescribeView, SettingsMirrorSnapshot,
 } from './settings-mirror.ts'
 
+// About Us page
+export { AboutUs } from './AboutUs.tsx'
+
+// Keyboard Shortcuts
+export { KeyboardShortcuts } from './KeyboardShortcuts.tsx'
+
 /**
  * Required services: the Remote namespace the mirror reads through and the
  * forwarded settings invalidation it refreshes on.
