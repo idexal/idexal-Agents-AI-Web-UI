@@ -1,0 +1,125 @@
+# Packages — npm + GitHub Packages (idexla Agents AI Web UI)
+# Publishes workspace packages to npm and GitHub Packages on version tags.
+# Requires NPM_TOKEN and GITHUB_TOKEN (automatic).
+name: Publish Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  PRIMARY_NODE_VERSION: "24"
+
+jobs:
+  pack:
+    name: Pack & verify
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          dest: ${{ runner.temp }}/setup-pnpm
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+
+      - name: Install (immutable)
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify release version
+        env:
+          RELEASE_PUBLISH: "true"
+        run: pnpm run release:verify --family dsh
+
+      - name: Build (official)
+        run: pnpm run build:official
+
+      - name: Pack tarballs
+        run: pnpm run release:pack --family dsh --out dist/npm
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-tarballs
+          path: dist/npm/*
+          retention-days: 7
+
+  publish-npm:
+    name: Publish to npm
+    needs: pack
+    runs-on: ubuntu-24.04
+    environment: npm-publish
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+        with:
+          dest: ${{ runner.temp }}/setup-pnpm
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+          registry-url: https://registry.npmjs.org
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: npm-tarballs
+          path: dist/npm
+
+      - name: Install (no scripts)
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm run release:publish --family dsh --from dist/npm
+
+  publish-gpr:
+    name: Publish to GitHub Packages
+    needs: pack
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+        with:
+          dest: ${{ runner.temp }}/setup-pnpm
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+          registry-url: https://npm.pkg.github.com
+          scope: "@idexal"
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: npm-tarballs
+          path: dist/npm
+
+      - name: Configure GitHub Packages registry
+        run: |
+          echo "@idexal:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
+      - name: Publish to GitHub Packages (if token present)
+        run: |
+          for tarball in dist/npm/*.tgz; do
+            echo "Publishing $tarball to GPR..."
+            npm publish "$tarball" --registry https://npm.pkg.github.com || echo "Skip $tarball"
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
