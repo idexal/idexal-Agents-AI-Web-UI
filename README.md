@@ -53,7 +53,7 @@ Starts the Web UI at `http://127.0.0.1:3080` and opens it in your browser. Use `
 
 ```sh
 git clone https://github.com/idexal/idexal-Agents-AI-Web-UI.git
-cd agents
+cd idexal-Agents-AI-Web-UI
 pnpm install
 pnpm run build
 pnpm dsh web
